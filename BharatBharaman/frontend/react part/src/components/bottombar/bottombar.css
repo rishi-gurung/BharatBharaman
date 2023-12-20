@@ -1,0 +1,27 @@
+.bottombar{
+    width: calc(100% - 40px);
+    max-width: 380px;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    border-radius: 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transform: translate(-50%, 0);
+    z-index: 30;
+}
+
+.bottom-icons{
+    height: 50px;
+    width: 50px;
+    border: none;
+    color: black;
+    background-color: transparent;
+}
+
+@media (min-width: 500px) {
+    .bottombar{
+        display: none;
+    }
+}

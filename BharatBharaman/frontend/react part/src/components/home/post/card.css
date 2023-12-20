@@ -1,0 +1,15 @@
+.pcard{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.postusername{
+    font-size: 22px;
+    padding: 7px;
+}
+
+.post-i-text{
+    font-size: 20px;
+    margin-left: 6px;
+}

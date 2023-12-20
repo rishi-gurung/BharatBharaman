@@ -1,0 +1,26 @@
+.rail-nav{
+    width: 60px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: fixed;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    z-index: 30;
+
+}
+@media (min-width: 1000px) {
+    .rail-nav{
+        display: none;
+    }
+}
+
+@media  (max-width: 500px) {
+    .rail-nav{
+        display: none;
+    }
+}

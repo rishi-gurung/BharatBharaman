@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    color: #333;
+}
+
+
+
+.upload-container-prefixsachin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 60px;
+    justify-content: space-between;
+}
+
+video {
+    width: 380px;
+    aspect-ratio: 9/16;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: black;
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+    
+}
+
+input[type="text"] {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 50px;
+}
+
+button {
+    background-color: #ab1414;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    width: 200px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.newnextsachinpalpostreelsdusradiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 400px;
+}

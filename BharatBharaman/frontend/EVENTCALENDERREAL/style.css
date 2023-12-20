@@ -1,0 +1,346 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row-a{
+    height: 100%;
+    width: 100%;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+}
+.eventmainpacific{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+.eventpage1pac{
+    height: 100%;
+    width: 100%;
+    
+}
+.eventpage1pacimage{
+    height: 80%;
+    width: 100%;
+}
+.eventpage1pacimage > img{
+    height: 90%;
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+.event_mianpage2pac{
+    height: 100%;
+    width: 100%;
+    
+}
+.event_mainpage2text{
+    height: 70px;
+    width: 400px;
+    position: relative;
+    top: -20%;
+    left: 30%;
+}
+.event_mainpage2data{
+    height: 200px;
+    width: 100%;
+    background-color: #e76f51;
+    display: flex;
+    justify-content: space-around;
+}
+.event_mainpage2dataleft{
+    height: 120%;
+    width: 30%;
+    background-color: red;
+    border-radius: 15px;
+    position: relative;
+    top: -9%;
+}
+.event_mainpage2dataleft a img{
+height: 100%;
+width: 100%;
+background-position: center;
+object-fit: cover;
+border-radius: 5px;
+}
+.event_maintextdataimge {
+    height: 20px;
+    width: 90px;
+    background-color: #e76f51;
+    border-radius: 4px;
+    position: relative;
+    top: -95%;
+    left: 5%;
+    align-items: center;
+}
+.event_maintextdataimge a{
+    text-decoration: none;
+    color: #ffff;
+}
+.event_mainpage2datanamefest{
+    position: relative;
+    top: -7%;
+    left: 25%;
+}
+.event_mainpage2datacenter{
+    height: 120%;
+    width: 30%;
+    background-color: red;
+    border-radius: 15px;
+    position: relative;
+    top: -9%;
+}
+.event_mainpage2datacenter a img{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.event_mainpage2datacenterdate{
+    height: 20px;
+    width: 90px;
+    background-color: #e76f51;
+    border-radius: 4px;
+    position: relative;
+    top: -95%;
+    left: 5%;
+    align-items: center;
+}
+.event_mainpage2datacenterdate a{
+    text-decoration: none;
+    color: #ffff;
+}
+.event_mainpage2datacenternameoffest{
+    position: relative;
+    top: -7%;
+    left: 25%;
+}
+
+.event_mainpage2dataright{
+    height: 120%;
+    width: 30%;
+    background-color: red;
+    border-radius: 15px;
+    position: relative;
+    top: -9%;
+}
+.event_mainpage2dataright a img{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.event_mainpage2datarightdatename{
+    height: 20px;
+    width: 90px;
+    background-color: #e76f51;
+    border-radius: 4px;
+    position: relative;
+    top: -95%;
+    left: 5%;
+    align-items: center;
+}
+.event_mainpage2datarightdatename a{
+    text-decoration: none;
+    color: #ffff;
+}
+.event_mainpage2datarightnameoffest{
+    position: relative;
+    top: -7%;
+    left: 25%;
+}
+
+/*page3--------------- */
+.event_page3mainpac{
+    height: 120%;
+    width: 100%;
+}
+.event_page3mainpactext{
+    height: 20%;
+    width: 30%;
+    position: relative;
+    top: 10%;
+    left: 2%;
+}
+.event_page3mainpac_data{
+    height: 180px;
+    width: 100%;
+    background-color: #e76f51;
+    display: flex;
+    justify-content: space-around;
+}
+.event_page3mainpac_dataleft{
+    height: 100%;
+     width: 21%;
+     border-radius: 5px;
+}
+.event_page3mainpac_dataleft a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.thisisdivforthenameoftheimageofthisweek{
+    position: relative;
+    left: 15%;
+    top: -2%;
+}
+
+.event_page3mainpac_datacenter{
+     height: 100%;
+     width: 21%;
+     border-radius: 5px;
+}
+.event_page3mainpac_datacenter a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.event_page3mainpac_datacenter2p{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page3mainpac_datacenter2p a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_page3mainpac_dataright{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page3mainpac_dataright a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_page3textfotthismonth{
+    height: 50px;
+    width: 150px;
+   position: relative;
+   top: 5%;
+   left: 2%;
+}
+.event_page3mainthismonth{
+    height: 200px;
+    width: 100%;
+    position: relative;
+    top: 5%;
+    background-color: #e76f51;
+    display: flex;
+    justify-content: space-around;
+}
+.event_page3mainthismonthleft{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page3mainthismonthleft a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_page3mainthismonthcenter{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;  
+}
+.event_page3mainthismonthcenter a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+.event_page3mainthismonthcenter2p{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page3mainthismonthcenter2p a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_page3mainthismonthright{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page3mainthismonthright a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+/* ------ */
+.event_page4mainpac{
+    height: 400px;
+    width: 100%;
+}
+.event_page4text{
+    height: 100px;
+    width: 300px;
+    position: relative;
+    top: 10%;
+    left: 2%;
+}
+.event_page4nextmonth{
+    height: 200px;
+    width: 100%;
+    background-color: #e76f51;
+    display: flex;
+    justify-content: space-around;
+}
+.event_page4nextmonthleft{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px;
+}
+.event_page4nextmonthleft a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_page4nextmonthcenter{
+    height: 100%;
+    width: 21%;
+    border-radius: 5px; 
+}
+.event_page4nextmonthcenter a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_pagenextmonthcenter2p{
+    height: 100%;
+    width: 21%;
+    
+    border-radius: 5px;
+}
+.event_pagenextmonthcenter2p a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.event_pagenextmonthright{
+    height: 100%;
+    width: 21%;
+
+    border-radius: 5px;
+}
+.event_pagenextmonthright a img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}

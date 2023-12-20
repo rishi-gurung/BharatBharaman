@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-7y7Sti0oBT5z7b6fPo5oecFtJITqFRfumLcG9YO1Tq0YqS1nrwX+T5UqqppkKt16JuTQQTK55w1tlDSjNJ+BlQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body.sachinpalbeinghost {
+            font-family: 'Arial', sans-serif;
+            background-color: whitesmoke;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .headerimageclasssachinpalbeinghost{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header-image-sachinpalbeinghost {
+            width: 1400px;
+            display: flex;
+            justify-content: center;
+            height: 200px;
+            object-fit: cover;
+            margin-top: 50px;
+            border-radius: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        .event-form-sachinpalbeinghost {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transform: translateZ(0); /* Adding 3D effect */
+            transition: transform 0.3s ease-in-out;
+            
+        }
+        
+
+        .event-form-sachinpalbeinghost:hover {
+            transform: scale(1.02); /* Adding hover effect */
+        }
+
+        h1.sachinpalbeinghost {
+            text-align: center;
+            color: black; /* Blue color */
+        }
+
+        form.sachinpalbeinghost {
+            display: grid;
+            gap: 15px;
+        }
+
+        label.sachinpalbeinghost {
+            font-weight: bold;
+            color: rgb(58, 58, 104); /* Dark gray color */
+        }
+
+        input.sachinpalbeinghost,
+        textarea.sachinpalbeinghost {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        textarea.sachinpalbeinghost {
+            resize: vertical;
+        }
+
+        button.sachinpalbeinghost {
+            background-color: #ab1414; /* Green color */
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button.sachinpalbeinghost:hover {
+            background-color: #ab1414; /* Darker green color on hover */
+        }
+
+        /* Font Awesome Icons */
+        label.sachinpalbeinghost::before {
+            font-family: 'Font Awesome 5 Free';
+            margin-right: 10px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+    </style>
+    <title>Host Your Event</title>
+</head>
+<body class="sachinpalbeinghost">
+   <div class="headerimageclasssachinpalbeinghost">
+    <img class="header-image-sachinpalbeinghost" src="https://teachingonline.iu.edu/images/eventspageheader_v1.png" alt="Header Image">
+    </div>
+    <div class="sachinpalbeinghostbgimageformbehind">
+    <div class="event-form-sachinpalbeinghost">
+        <h1 class="sachinpalbeinghost">Host Your Event</h1>
+        <form class="sachinpalbeinghost" action="#" method="post" enctype="multipart/form-data">
+            <label class="sachinpalbeinghost" for="eventName">Event Name:</label>
+            <input class="sachinpalbeinghost" type="text" id="eventName" name="eventName" required>
+
+            <label class="sachinpalbeinghost" for="eventImage">Upload Image:</label>
+            <input class="sachinpalbeinghost" type="file" id="eventImage" name="eventImage" accept="image/*" required>
+
+            <label class="sachinpalbeinghost" for="eventDate">Date of the Event:</label>
+            <input class="sachinpalbeinghost" type="date" id="eventDate" name="eventDate" required>
+
+            <label class="sachinpalbeinghost" for="maxAdults">Max Capacity (Adults):</label>
+            <input class="sachinpalbeinghost" type="number" id="maxAdults" name="maxAdults" required>
+
+            <label class="sachinpalbeinghost" for="maxChildren">Max Capacity (Children):</label>
+            <input class="sachinpalbeinghost" type="number" id="maxChildren" name="maxChildren" required>
+
+            <label class="sachinpalbeinghost" for="eventDescription">Event Description:</label>
+            <textarea class="sachinpalbeinghost" id="eventDescription" name="eventDescription" rows="4" required></textarea>
+
+            <label class="sachinpalbeinghost" for="eventVenue">Event Venue:</label>
+            <input class="sachinpalbeinghost" type="text" id="eventVenue" name="eventVenue" required>
+
+            <label class="sachinpalbeinghost" for="expectedArrival">Expected Arrival Time:</label>
+            <input class="sachinpalbeinghost" type="text" id="expectedArrival" name="expectedArrival" required>
+
+            <label class="sachinpalbeinghost" for="eventAmount">Amount:</label>
+            <input class="sachinpalbeinghost" type="text" id="eventAmount" name="eventAmount" required>
+
+            <button class="sachinpalbeinghost" type="submit">Host Event</button>
+        </form>
+    </div>

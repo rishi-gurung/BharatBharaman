@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+      }
+      #map {
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(23, 23, 23);
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        background-color: orange;
+        display: block;
+        max-width: 648px;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+      }
+      .gm-style-iw-d,
+      .gm-style-iw,
+      .gm-style-iw-c {
+        max-height: 800px !important;
+      }
+    </style>
+
+    <div id="map"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&callback=initMap"
+      async
+      defer
+    ></script>
+
+    <script>
+      function initMap() {
+
+        let laty = 18.4666179;
+        let lngy = 83.660743;
+
+        if ("geolocation" in navigator) {
+            // Prompt user for permission to access their location
+            navigator.geolocation.getCurrentPosition(
+              // Success callback function
+              (position) => {
+                // Get the user's latitude and longitude coordinates
+                laty = position.coords.latitude;
+                lngy = position.coords.longitude;
+          
+                // Do something with the location data, e.g. display on a map
+                console.log(`Latitude: ${laty}, longitude: ${lngy}`);
+              },
+              // Error callback function
+              (error) => {
+                // Handle errors, e.g. user denied location sharing permissions
+                console.error("Error getting user location:", error);
+              }
+            );
+          } else {
+            // Geolocation is not supported by the browser
+            console.error("Geolocation is not supported by this browser.");
+          }
+
+        var center = { lat: laty, lng: lngy };
+        var locations = [
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipN2zY9mKbZ7rKGGHtHGg6xYIja8bQ11JLyyNOll=w408-h306-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Directorate of Cultural Affairs<br> Archaeology & Archives Museum<br> Punjab</div>\
+              ਡਾਇਰੈਕਟੋਰੇਟ ਦਾ ਕਲਚਰਲ ਅਫੇਅਰਸ<br> ਅਰਚਿਓਲੋਜੀ & ਅਰਕਾਈਵਜ਼ ਮਿਊਜ਼ੀਅਮ ਪੰਜਾਬ<br></div>\
+           <a href="https://maps.app.goo.gl/xVpttwBeAyhaYJsw7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          30.7544426,
+          76.6695491,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipP_SZsnPeSH-6uM0Yr31S6p8rR6jBWLIDsVxIPh=w408-h305-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Kurukshetra Panorama & Science<br> Centre </div>\
+              ਡਾਇਰੈਕਟੋਰੇਟ ਦਾ ਕਲਚਰਲ ਅਫੇਅਰਸ<br>कुरुक्षेत्र पैनोरमा और विज्ञान केंद्र<br></div>\
+           <a href="https://maps.app.goo.gl/Q5REy9jgyEh9shFs8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          29.9660103,
+          76.8313274,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNEMFABQQXxX06NdeAKz5EfKsoUnhwCji09g3cg=w408-h306-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Brahma Sarovar</div>\
+              ब्रह्मा सरोवर<br></div>\
+           <a href="https://maps.app.goo.gl/oBbPhGFHujmGtYTU7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          29.961321,
+          76.8222476,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMBVvKNclShbZXVxJjtbq_r3sf8DHfCaP7MAQba=w408-h271-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Panipat Museum</div>\
+              पानीपत संग्रहालय<br></div>\
+           <a href="https://maps.app.goo.gl/eXtFxMKfJ6h7mrvH6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          29.3893941,
+          76.9145831,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipP8Ju6VEoKn64wb687HXJuY7S-IFVu3EhRemmgU=w426-h240-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Surajkund</div>\
+              सूरजकुंड<br></div>\
+           <a href="https://maps.app.goo.gl/fqTJ8mWEZvMvCkDh9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          28.4797041,
+          77.2724263,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOdPZz41FdAAhHQ25TVAl07qjvLDSMYn9UHFCJ-=w408-h306-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">Raja Nahar Singh Palace</div>\
+              राजा नाहर सिंह पैलेस<br></div>\
+           <a href="https://maps.app.goo.gl/BZKYo4ttUcyJjpyH7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          28.2508676,
+          76.8383878,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOTPmhGBQnUkO_bj9C1f3-oWpCUcoM0YM_3oE31=w486-h240-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Chhachhrauli Fort</div>\
+              Chhachhrauli फोर्ट<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/FE4bS2zhn3f6ujoW6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+          30.6299917,
+          77.2557844,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPKWcRLy-EhF_HnVl2GAf3DkcE6fNqNe1o49AfR=w408-h306-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Kondaveedu Fort</div>\
+                కొండవీటి కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/e9p2h67RGu4EisA88">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.25466554954843,
+           80.26385533534221,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipN5bDWWXEjL4IYtmETx89ca8cmngzOwq7ih4JGz=w408-h255-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Golconda Fort</div>\
+                గోల్కొండ కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/gMp1TmSL5EeGQksK9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.383595670227187,
+           78.40108498203489,
+        ],
+        [
+          '<img style="width:100%" src="https://lh3.googleusercontent.com/gps-proxy/AMy85WLg7i3yFrJ4X-P-1toXOFwaZfkkWq11x6kgB_cxSS6b39yVu8s4AhPk1LMGunURT8er2EdW52jmGN8IxHz-JZdHEUzhAxpUbXAf3IfRSYJRtglSJT_X_22JzBMvIo1o9U5qg7wBNUK7u3KqGln4KmurDbinKrF5jv6wArasFwdQMTUGiCw0qAiO=w408-h272-k-no " alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Golconda Fort</div>\
+                గోల్కొండ కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/gMp1TmSL5EeGQksK9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.383595670227187,
+           78.40108498203489,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNnlNFjSeVNiY8364Iz6OGaNcwlAoDeM3AeJlyq=w408-h544-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Warangal Fort</div>\
+                వరంగల్ ఫోర్ట్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/vvnwLJ3q9d2ndseq5">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.95631712292304,
+           79.61535112041545,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMtgJCUrCz7te3HzwCI7BgXHdzPCl0fQWhNhNfK=w408-h544-k-no" alt="">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shrikalahsti Temple</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/h9vGrTsXViX9oo1m8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           13.751149443641104, 79.69953983905238,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPnY16KkMjSyEraSxJjP9cRVfBe8JI3x5RahhZy=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Sri Chintala Venkataramana Swamy Temple</div>\
+                చింతల వెంకటరమణ స్వామి ఆలయం<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/azzeHp5DFS8F57889">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           14.911491409698858, 78.01054234398208,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMzms847DIkPkX4qpeo-UXqBibbN0Q3mX03p5YO=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Bugga Rama Lingeswara Swamy Temple</div>\
+                బుగ్గ రామలింగేశ్వర స్వామి ఆలయం<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/Yd4WuM7h7uPUNrSU9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           14.972428751403173, 78.01343692560283,
+        ],
+        [
+          '<img style="width:100%" src="https://lh3.googleusercontent.com/gps-proxy/AMy85WIBu7_Io-5BCDp3K1Kind34QIJo4onS2sfusK4F5Wq3bbx5OqJxNyAVdfokKOaxdnf9qpNLlKWZWuM1zEzr-_rLnl6PsucE9A7UsO9_Ep5upAN8uqOzqI7QiDCBIKZWlk8VEWDatDC9GLqVXXNzTvHB51rceRbPAzWper9Dz8C0AWT9CstDSVsz=w408-h272-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Undavalli Caves</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/dZ29ybX6uaYjS5zP7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.4973880762063, 80.58213595091857,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPdpAINGjZW_QVmLgmj3sGwm6C4dl2MijDDdroF=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Penukonda Fort</div>\
+                పెనుకొండ ఫోర్ట్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/GE9LggsceHrJaGmP8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           14.085662434248698, 77.58755171121445,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMvl2Q03Oxx-AvsLCgFWF6QM3YiOJbb40_qUpIB=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Kondapalli Fort</div>\
+                కొండపల్లి కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/MbdVerMETnScFMFt8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.625579988941645, 80.53061650859307,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOn3u2JeLD-kafhHImPphX_3VbPZt-yI7_Mnx40=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Belum Caves</div>\
+                బెలుం గుహలు<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/8FUv126Pg6TVbmTf8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           15.102776192513453, 78.11150719506348,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPFoxDCRvepO4T3pWx5LoFa8rIiGwElaBSh2rpb=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Adoni Fort</div>\
+                ఫోర్ట్ - ఆదోని<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/x4jENBWkyH3m42Xx9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           15.647485852415725, 77.27738646693156,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPKWcRLy-EhF_HnVl2GAf3DkcE6fNqNe1o49AfR=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Kondaveedu Fort</div>\
+                కొండవీటి కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/xcfU7iG41qbn4PFd7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.254721283851335, 80.26388172392626,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNEhBrVxLTHb4CM3bzMbymPA1ILDadX-9Db93Y=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Charminar</div>\
+                చార్మినార్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/fyw9NZsE1NoKVr6o8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.361840064334515, 78.47460012210503,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNkR1yRJ4S8gSibsjpYfVolOnEjmvnUbW2tNKXi=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Khammam Fort</div>\
+               ఖమ్మం కోట<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/FKntZJhjVhY1tnL6A">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.24515728643174, 80.14668025278677,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOB_0I-JOjw7hvIqXzFcM9oicqfHQx6bd4lB4SE=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Ramappa Temple</div>\
+                కాకతీయ రుద్రేశ్వర రామప్ప దేవాలయం<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/8AnRyCGb6XvEGZpYA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.259561263964603, 79.94331779514258,
+        ],
+        [
+          '<img style="width:100%" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=jwkKpVTipbBdLVm6zoeFlw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=292.2025&pitch=0&thumbfov=100">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shri Ram Chandra Temple</div>\
+                శ్రీ రామ్ చంద్ర ఆలయం<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/bqPYXK4Khf61Pcxe9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.417927327138276, 78.53943071046248,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNryP4aXgsKFaHLRCngUZcz8t88MjGfkU_MFv-8=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Medak Fort</div>\
+              <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/okfXen5U5T2Yq7X19">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.044454002660537, 78.25478895280794,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOTL-Gxjq3Ck3pIqxoFDBl6Yz2hqjjjUQmHmRc=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Medak Church</div>\
+              <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/eRWeeFiafTpmnNrU8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.053983163971573, 78.26697227710271,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPgmZwYnZb1SUBH9-5vMc7Qjubd3F16PoCNcaFG=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Bible Tower Thrissur</div>\
+               ബൈബിൾ ടവർ പുത്തൻ പള്ളി<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/1F2maSETS2fstUag8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           10.52118002705346, 76.21855352260084,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipN7_Z4wGrDGYCqhc-ALShP2btjeimhaKwrahSoh=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Anchuthengu Fort</div>\
+                അഞ്ചുതെങ്ങ് കോട്ട തിരുവനന്തപുരം<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/mk66XDdox1kUuBvm6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           8.662877413758675, 76.7644495814545,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPVekqelVJMU2Jpn8C8ClzP3_umQLH_c5X3yV5V=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Edakkal Caves</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/HHuR46vBEyQDcY8DA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           11.627793302195304, 76.234415076712,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMveAa-dd0RJ5iCO5VsAFNQxQKQK6XW3y971nkM=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shri Ranganathaswami Temple</div>\
+                ಶ್ರೀ ರಂಗನಾಥಸ್ವಾಮಿ ದೇವಸ್ಥಾನ<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/j7y6UDrhUM63WSuy8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           12.425118915123377, 76.67911127439099,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMqk6DtIwLR2Qk1Ya54Fj8IhS6BfU3t69CTVrte=w408-h463-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Arunachaleswarar Temple</div>\
+               <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/7NgEcda33BaVkffB7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           12.232390323915642, 79.06788754818719,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOCVze02AhmL4Gal_S5tyixaXgVquYGsoi9EVjw=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Malayadipatti Ancient Rockcut Temple</div>\
+                மலையடிப்பட்டி புராதன குடைவரை கோயில்<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/NW5MTCMPUQj1tN6c7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           10.654438999731886, 78.89660518889,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipM4ll7aXLHdzJXqWeYLkv83sNHyAAK8BjAGhc-v=w408-h500-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Gingee Fort</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/YGf571ckuh9UzaCs8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           12.250213418008194, 79.39486845267582,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipO86d9mdHmpcKBfcax3yh3Z3cs1p6NH_cu21i5I=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Rock Cut Cave Temple</div>\
+               ഗുഹാ ക്ഷേത്രം<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/At5MwW3hsBRXkaFH9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           8.382750218604482, 76.99127479124574,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNIXmtDpZgCggslWEMwzyTO-8h9yHr4PYv7Ymx_=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Bengaluru Fort</div>\
+               ಬೆಂಗಳೂರು ಕೋಟೆ<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/YeSpNzEDURUaNqkY8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           12.96304230573367, 77.57587549858495,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOyyKIOfJpWeOYbcl07u7sIx1EXk8Sp84yXPpKT=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Devanahalli Fort</div>\
+                ದೇವನಹಳ್ಳಿ ಕೋಟೆ<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/iH7QwbmoR4kjxdDv5">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           13.250421214054741, 77.70905125121959,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipP3c1bgdXp-tvyQrCorKcDmm0DGzeK9QVcLubQO=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Ramanathaswamy Temple Gopuram</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/AQJ7P7zehdjqMdTLA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           9.288365965575924, 79.31814495700792,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNPQ8Q6r6p8xqxxsEZPifwhJbJKsEH9QaEjiuNX=w533-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Badami</div>\
+                ಬಾದಾಮಿ<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/mdWws19My5pRskxr8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           15.918968917290181, 75.6763383592384,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNJuWWdr6vvkoz39waHnrPOqOUsu5CwjnIeL6Pj=w408-h816-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Belur</div>\
+                ಬೇಲೂರು<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/5K1gxYpsoA761Bzg7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           13.162482522770587, 75.8680691461583,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPf48sSagVKiVW6KoxKFMIJgSHgJQSYT_muD7uo=w408-h442-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Basilica of Bom Jesus</div>\
+                बेसिलिका ऑफ बं येशू<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/Ytd6gUiyGEia9xPs9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           15.500916832403956, 73.91145973925063,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPcW5RH9757LLaJx-ETVOYE88Vz2Lv2_xIQn0CJ=w408-h305-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Corjuem Fort</div>\
+                कोर्जुएम फोर्ट<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/gPK9V1H71nu5iQTy5">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           15.597037761685213, 73.89287422575964,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPaPWRmzBvaCFG1WYTDsbv2ZQu0AU2sMSv09e3E=w408-h280-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Ajanta Caves</div>\
+                अजिंठा लेणी<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/qjDXMRxYca2supUS7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           20.55207124677593, 75.70334865472948,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOb3vU0IlKPzgQVFIEPmbssNevf7oD65R3OYGnP=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Elephanta Caves</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/iFVvA79YyQceFZ9UA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.963519873410938, 72.93146493749097,
+        ],
+        [
+          '<img style="width:100%" src="https://maps.gstatic.com/tactile/pane/default_geocode-2x.png">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                The Victorian and Art Deco Ensemble of Mumbai</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/9H7F1yuN5j4tB6PbA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.930597187530836, 72.82901705759008,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipN5gz_v-wuTGZrN-vPwEmpi5fSG5VxoWfMaNWAo=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Gateway of India</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/z6gqUtaYn73KdzmJ8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.922105858794417, 72.8346865093094,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOLD4ff_R6d2cEK_JKFXI3Z66EDnYOr0ZWiMCeZ=w408-h307-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Aga Khan Palace</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/5UHvXCnVVKsVgh2M6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.552707779410074, 73.90143483747944,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNS0ALzGD2zdFmr9TgfuznhGIN8S9Ze-kkeNjy7=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shaniwar Wada</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/Ja8FNaY5hrABtNKb8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.519698662689784, 73.85537118212578,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPDkWETKlL7nvc_ehlBmUdqRblS40suMDlVTeIz=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Jaigad Fort</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/cB1goYEdErBpjWcp6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.300728582643238, 73.22171928347305,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMuTCGO5DXEvtuvxsDerWevgldhg70zghjAwL5j=w408-h510-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+               Raigad Fort</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/C7WekTrzQQKt5mPe7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.233823234586062, 73.44069129514187,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNfN0HrPeP0fHdCg1a4uTrPHFtsUISOk0-RlSJb=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Qutub Shahi Tombs</div>\
+                కుతుబ్ షాహీ టొంబ్స్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/njrF8CZPbeUMrvE37">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.396952026830963, 78.39871017792794,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOyjkXrQUdzvTylFvr5dMdCJEpzhNkOE8E59kq_=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Sri Venkateswara Temple</div>\
+                శ్రీ వెంకటేశ్వర స్వామీ టెంపుల్ TTD జూబిలి హిల్స్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/Fc9VvZGKcufSjQTy6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           17.41995000150022, 78.4172233876495,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPYGqz6hmPbXHV48IPnHNs5B6LwcFrMv_ekG-XZ=w408-h543-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Bhavani Island</div>\
+                భవాని ఐల్యాండ్<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/rsvnfkm5pgYisWcp6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.52252279665314, 80.5735513573746,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMdq4OrvibvEtMEV7KTS_ZngtTR77MFy85poHe4=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Kanaka Durga Temple</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/arvciXxARQ3MRtZg8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.51399880983629, 80.60685205276828,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPui9fTnpwKMfF-j-fruGzO8UNfBT5h7CMUeSIO=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Nagarjuna Hill</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/A96njpKtBMrYLBJ66">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.524605317053194, 79.24545172133179,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipN7rNPhQHuNofqHEYVyQHvJm5XAXkJWn6SeWDs=w408-h408-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Lepakshi Temple </div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/X7mk4USkwMJvYCao6">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           13.802833000685206, 77.60907567969275,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPpv6BuPvQbuZnxK3Tpqb8nhuFK8sdcoDX4wCux=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Machilipatnam</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/u4mghihdzm24FU2c9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           16.190685371065644, 81.14305060651635,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNNCNn4A9ujrP0drFeNWF0ewQJllcIA7CuLUEmT=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Hawa Mahal</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/TFRToUeNphyrJbLL8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           26.92443252695875, 75.82631423555598,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOWwcAWLqT4DNYyS7rsj7GjaaFHDHQCre8jZ4B2=w408-h272-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Jantar Mantar </div>\
+                जंतर मंतर<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/y3Su9vhbNRDRhTjM9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           26.924762000088784, 75.824559973602,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNZ1I2Ou_Ob-F7tl7sVxMohn35bxATwHEDgwLjV=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Hazrat Baba Faqruddin soharwardy RA Dargah </div>\
+                హజ్రత్ బాబా ఫక్రుద్దీన్ సోహర్వార్డి RA దర్గః<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/VSNremw7eu8xVMzt8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           14.083623358755412, 77.60051027282063,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMXTiuF5BOfkt43GbP-xtxh_HUgjqVUGxz1sxTy=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shami Vighnesh - Ganesh Temple, Adasa </div>\
+                शमी विघ्नेश - गणपती मंदिर, आदासा<br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/J6VYMGUpDPNJrcWQ9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           21.332611398340383, 78.94236798635374,
+        ],
+        [
+          '<img style="width:100%" src="https://media2.thrillophilia.com/images/photos/000/367/228/original/1614084540_1553761744_shutterstock_289524986.jpg.jpg?w=753&h=450&dpr=1.5">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Bibi-ka-Maqbara </div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/6jVv8BZDLoBb6F6A7">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           19.901264440913, 75.31933236159588,
+        ],
+        [
+          '<img style="width:100%" src="https://lh3.googleusercontent.com/gps-proxy/AMy85WJieXJK7exf-Q4l1hhQQsKqM8eGV9V0ioHfvZzN39Gmxm9SLyT1IYmL25vNC_BoU_E0pYRc28s61mZH1M3--zcuiqjP1N_FIn3_BjNmDQlT3FGd5NXPdLjdOXACLV4RwHuBGed_bufIO-1ypGtW47iCwhvIteAowdXgLhovPEADZcbqCaY89epv=w408-h270-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Konark Sun Temple </div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/riYBGKcic9bXJxKA9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           19.887806090620973, 86.09501640849437,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNYS3o0wWOy7pAT845XOJLFp-Og6_5IW__2ea9a=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Daulatabad Fort</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/jnfFBjfK7HtWqrRbA">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           19.943844162512885, 75.22060926820437,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipOY-DOWb3fbrf9Wx8EIjECccYEcg9Mkg365IFKK=w408-h306-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Takhat Sachkhand Sri Hazur Sahib</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/5Qb8ye1H5v2QRDnp9">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           19.152648586578636, 77.31904652215397,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNnEt-sMLw5ziRzQQfKkEyGDEaoJjnTFYlh3O4J=w426-h240-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Shri Renuka Mata Temple, Mahurgad</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/GbJhBccG6zvSeZD66">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           19.833238517813136, 77.92520227197798,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipMDUg0rKRjGjLHAAr_8M-L9OULZrtNcxxK_ffn2=w408-h272-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Kandhar Fort</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/pD5KBGYwPxNXtdf27">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           18.875028829295566, 77.20172797115531,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipNfBEIqCRjYeXQr6_XT_C8YZk9s2cJbxQz67rLq=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Ratnagiri, Rajgir</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/jHkrMcVrMHLL5LgR8">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           24.999486901479727, 85.42917907159227,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPpGloLOXRCZtaewtIU1bCH9runj9GtfdMP2ZkG=w408-h543-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Barabar Cavesr</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/BjBpJiMHBNju6E119">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           25.005694825572856, 85.06332639535958,
+        ],
+        [
+          '<img style="width:100%" src="https://lh3.googleusercontent.com/gps-proxy/AMy85WJtaDSY20xuiZBXiUTrdVd9EQ8hVyCemT5fKEjNQNI38ARhnP6RL9UIrG3vzBAR7HJFU87381cmHN-JgZvlW3SqNfffouekRlTsNm1rCAK3Y4wbYGzh0GVo5zegFgz4JvqNtN9dsCefEJE0uqbq4jeNmDzqTCAwOojw3HfvschlMIZd7HXbmbvuPg=w408-h272-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Golghar</div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/JH7FiZ84wyvbdUH67">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           25.62059817426652, 85.13936216469777,
+        ],
+        [
+          '<img style="width:100%" src="https://lh5.googleusercontent.com/p/AF1QipPplPYU1c0qtuBKarwk5xOzLFx1mckroyxoAVoX=w408-h544-k-no">\
+              <div style="color: grey; font-size:20px;padding:10px 0 20px 0"><div style="font-size: 24px; color:black; font-weight:600;padding-bottom:4px;">\
+                Seven Wonder Park/div>\
+                <br></div>\
+           <a target="_blank" href="https://maps.app.goo.gl/JKjeJN6HCmHCKSg98">Get Directions</a>\
+           <div style="height: 16px"></div>',
+           26.486719028600472, 74.6180640665801,
+        ]
+      ];
+    
+        var 
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: center,
+        });
+        var infowindow = new google.maps.InfoWindow({});
+        var marker, count;
+        for (count = 0; count < locations.length; count++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(
+              locations[count][1],
+              locations[count][2]
+            ),
+            map: map,
+            title: locations[count][0],
+          });
+          google.maps.event.addListener(
+            marker,
+            "click",
+            (function (marker, count) {
+              return function () {
+                infowindow.setContent(locations[count][0]);
+                infowindow.open(map, marker);
+              };
+            })(marker, count)
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
